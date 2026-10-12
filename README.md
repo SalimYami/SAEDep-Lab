@@ -5,4 +5,8 @@ RMI (Remote Method Invocation) est un mécanisme Java permettant d'appeler des m
 
 ## 2. Client / Serveur
 - **Serveur** : instancie l'objet distant, démarre le registre RMI sur le port 1099 (`LocateRegistry.createRegistry`) et l'enregistre dans l'annuaire (`Naming.rebind`).
-- **Client** : récupère la référence distante via l'annuaire (`Naming.lookup`) à travers l'interface commune, puis invoque les méthodes distantes.
+- **Client** : récupère le `stub` via l'annuaire (`Naming.lookup`) et appelle la méthode comme si l'objet était local.
+
+## 3. Notes
+- **stub** : proxy côté client représentant l'objet distant.
+- L'appel se fait de manière transparente pour le client (même syntaxe qu'un appel local).
